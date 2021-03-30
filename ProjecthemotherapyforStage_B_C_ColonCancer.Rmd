@@ -104,7 +104,9 @@ colon.data <- read.csv('colon_s.csv')
 ```
 
 # Exploratory Data Analysis
-
+```
+describe(colon.data)
+```
 ## Column descriptions
 
 ```{r}
@@ -167,7 +169,10 @@ bar_charting(ggplot(colon.data, aes(x=surg.factor, y="", fill=surg.factor)), "ti
 ```
 # Convert or recode variables?
 
-**TODO**
+library(dplyr) 
+colon.data<- colon.data %>%
+  select(rx, sex, age, obstruct, perfor, adhere, differ, extent, mort_5yr) %>%
+  filter(rx!="Col")
 
 # Check on missing values
 
